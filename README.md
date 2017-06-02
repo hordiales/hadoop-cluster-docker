@@ -1,5 +1,5 @@
 Fork de [kiwenlau/hadoop-cluster-docker](https://github.com/kiwenlau/hadoop-cluster-docker)
-pero usando como imagen de base la recomendada por hadoop: [sequenceiq/hadoop-docker](https://hadoop.apache.org/docs/stable2/hadoop-yarn/hadoop-yarn-site/DockerContainerExecutor.html])
+pero usando como imagen de base la recomendada por hadoop: [sequenceiq/hadoop-docker](https://hadoop.apache.org/docs/stable2/hadoop-yarn/hadoop-yarn-site/DockerContainerExecutor.html)
 
 # Cluster Hadoop de 4 nodos usando Docker
 
@@ -39,16 +39,27 @@ TIP: agregar --rm para que los containers sean temporarios.
 
 Para monitorear, con el browser conectarse a: [http://localhost:50070](http://localhost:50070)
 
-## Pruebas
+## Pruebas/Ejemplos
 
-## default
+## Ejemplo default de la documentación oficial
 ```
 VERSION=2.7.0
 cd /usr/local/hadoop-$VERSION
 bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-$VERSION.jar grep input output 'dfs[a-z.]+'
 ```
 
-## wordcount
+### Copiar a localhost y ver el resultado
+```
+$ bin/hdfs dfs -get output output
+$ cat output/*
+```
+
+### O mirar directamente el resultado en el filesystem distribuido (DFS)
+```
+$ bin/hdfs dfs -cat output/*
+```
+
+## wordcount example
 
 ```
 ./run-wordcount.sh
