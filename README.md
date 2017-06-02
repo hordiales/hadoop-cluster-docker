@@ -1,57 +1,40 @@
-## Run Hadoop Cluster within Docker Containers
-
-- Blog: [Run Hadoop Cluster in Docker Update](http://kiwenlau.com/2016/06/26/hadoop-cluster-docker-update-english/)
-- 博客: [基于Docker搭建Hadoop集群之升级版](http://kiwenlau.com/2016/06/12/160612-hadoop-cluster-docker-update/)
-
+Fork de [https://github.com/kiwenlau/hadoop-cluster-docker]
+pero usando como imagen de base la recomendada por hadoop: sequenceiq/hadoop-docker ([https://hadoop.apache.org/docs/stable2/hadoop-yarn/hadoop-yarn-site/DockerContainerExecutor.html])
 
 ![alt tag](https://raw.githubusercontent.com/kiwenlau/hadoop-cluster-docker/master/hadoop-cluster-docker.png)
 
+### Cluster Hadoop de 4 nodos usando Docker
 
-### 3 Nodes Hadoop Cluster
-
-##### 1. pull docker image
-
-```
-sudo docker pull kiwenlau/hadoop:1.0
-```
-
-##### 2. clone github repository
-
-```
-git clone https://github.com/kiwenlau/hadoop-cluster-docker
-```
-
-##### 3. create hadoop network
-
+##### 1. Crear una docker red hadoop
 ```
 sudo docker network create --driver=bridge hadoop
 ```
 
-##### 4. start container
-
+#### 2. Construir la imagen docker
 ```
-cd hadoop-cluster-docker
-sudo ./start-container.sh
+$ ./build-image.sh
 ```
 
-**output:**
+Parte de la imagen base mencionada y configura ssh, los nodos esclavos, la configuración general, etc.
 
+##### 3. Lanzar los containers (master y los esclavos)
 ```
-start hadoop-master container...
-start hadoop-slave1 container...
-start hadoop-slave2 container...
-root@hadoop-master:~# 
+./start-container.sh
+./
 ```
-- start 3 containers with 1 master and 2 slaves
-- you will get into the /root directory of hadoop-master container
 
-##### 5. start hadoop
+Crea el container master y los slaves con configuraciones diferentes, usando la misma red.
+
+##### 4. Iniciar hadoop en el master
 
 ```
 ./start-hadoop.sh
 ```
 
-##### 6. run wordcount
+### Pruebas
+
+
+#### run wordcount
 
 ```
 ./run-wordcount.sh
