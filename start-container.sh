@@ -8,6 +8,7 @@ N=${1:-5}
 
 echo "start hadoop-master container..."
 
+#TODO: add --rm for testing purposes (temporary container)
 docker run -itd --net=hadoop -p 50070:50070 -p 8088:8088 --name hadoop-master --hostname hadoop-master cluster 
 # &> /dev/null
 

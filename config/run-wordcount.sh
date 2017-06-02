@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION=2.8.0
+VERSION=2.7.0
 
 # test the hadoop cluster by running wordcount
 
