@@ -1,6 +1,6 @@
 Nota: Fork del proyecto [kiwenlau/hadoop-cluster-docker](https://github.com/kiwenlau/hadoop-cluster-docker) adaptado para usar la imagen de base recomendada por la [documentación de Hadoop](https://hadoop.apache.org/docs/stable2/hadoop-yarn/hadoop-yarn-site/DockerContainerExecutor.html): [sequenceiq/hadoop-docker](https://github.com/sequenceiq/hadoop-docker) (soporta diferentes versiones)
 
-# Cluster Hadoop de 4 nodos docker
+# Cluster Hadoop de 4 nodos (1 master y 3 slaves) usando Docker
 
 ## Configuración inicial
 ##### 1. Crear una docker red hadoop
@@ -40,12 +40,17 @@ Para monitorear, con el browser conectarse a: [http://localhost:50070](http://lo
 
 ## Pruebas/Ejemplos
 
-## Ejemplo default de la documentación oficial
+## Ejemplo default de la documentación oficial (WordCount)
+
+Dado un input, cuenta el número de ocurrencias para cada palabra.
+
 ```
 $ VERSION=2.7.0
 $ cd /usr/local/hadoop-$VERSION
 $ bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-$VERSION.jar grep input output 'dfs[a-z.]+'
 ```
+
+Referencia: https://hadoop.apache.org/docs/r2.8.0/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html#Example:_WordCount_v1.0
 
 ### Copiar a localhost y ver el resultado
 ```
