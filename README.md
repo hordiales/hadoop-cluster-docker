@@ -1,12 +1,11 @@
-Fork de [kiwenlau/hadoop-cluster-docker](https://github.com/kiwenlau/hadoop-cluster-docker)
-pero usando como imagen de base la recomendada por hadoop: [sequenceiq/hadoop-docker](https://hadoop.apache.org/docs/stable2/hadoop-yarn/hadoop-yarn-site/DockerContainerExecutor.html)
+Nota: Fork del proyecto [kiwenlau/hadoop-cluster-docker](https://github.com/kiwenlau/hadoop-cluster-docker) adaptado para usar la imagen de base recomendada por la [documentación de Hadoop](https://hadoop.apache.org/docs/stable2/hadoop-yarn/hadoop-yarn-site/DockerContainerExecutor.html): [sequenceiq/hadoop-docker](https://github.com/sequenceiq/hadoop-docker) (soporta diferentes versiones)
 
-# Cluster Hadoop de 4 nodos usando Docker
+# Cluster Hadoop de 4 nodos docker
 
 ## Configuración inicial
 ##### 1. Crear una docker red hadoop
 ```
-sudo docker network create --driver=bridge hadoop
+$ docker network create --driver=bridge hadoop
 ```
 
 ![alt tag](https://raw.githubusercontent.com/kiwenlau/hadoop-cluster-docker/master/hadoop-cluster-docker.png)
@@ -22,7 +21,7 @@ Parte de la imagen base mencionada y configura ssh, los nodos esclavos, la confi
 
 ##### Lanzar los containers (master y los esclavos)
 ```
-./start-container.sh
+$ ./start-container.sh
 ```
 
 Crea el container master y los slaves con configuraciones diferentes, usando la misma red. Cuando inicia el master, bindea el puerto 50070 y el 8088 con el host.
@@ -34,7 +33,7 @@ TIP: agregar --rm para que los containers sean temporarios.
 ##### Iniciar hadoop en el master
 (desde el bash del master)
 ```
-./start-hadoop.sh
+$ ./start-hadoop.sh
 ```
 
 Para monitorear, con el browser conectarse a: [http://localhost:50070](http://localhost:50070)
@@ -43,9 +42,9 @@ Para monitorear, con el browser conectarse a: [http://localhost:50070](http://lo
 
 ## Ejemplo default de la documentación oficial
 ```
-VERSION=2.7.0
-cd /usr/local/hadoop-$VERSION
-bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-$VERSION.jar grep input output 'dfs[a-z.]+'
+$ VERSION=2.7.0
+$ cd /usr/local/hadoop-$VERSION
+$ bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-$VERSION.jar grep input output 'dfs[a-z.]+'
 ```
 
 ### Copiar a localhost y ver el resultado
@@ -62,7 +61,7 @@ $ bin/hdfs dfs -cat output/*
 ## wordcount example
 
 ```
-./run-wordcount.sh
+$ ./run-wordcount.sh
 ```
 
 **output**
