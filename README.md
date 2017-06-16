@@ -40,6 +40,8 @@ Para monitorear, con el browser conectarse a: [http://localhost:50070](http://lo
 
 ## Pruebas/Ejemplos
 
+Paper original sobre Map Reduce (Google) [Simplified Data Processing on Large Clusters](https://static.googleusercontent.com/media/research.google.com/es//archive/mapreduce-osdi04.pdf)
+
 ## Ejemplo default de la documentación oficial (WordCount)
 
 Dado un input, cuenta el número de ocurrencias para cada palabra.
