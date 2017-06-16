@@ -9,7 +9,7 @@ pero usando como imagen de base la recomendada por hadoop: [sequenceiq/hadoop-do
 sudo docker network create --driver=bridge hadoop
 ```
 
-![alt tag](https://raw.githubusercontent.com/kiwenlau/hadoop-cluster-docker/master/hadoop-cluster-docker.png)
+![hadoop master slave diagram](https://raw.githubusercontent.com/kiwenlau/hadoop-cluster-docker/master/hadoop-cluster-docker.png)
 
 #### 2. Construir la imagen docker
 ```
@@ -47,6 +47,7 @@ VERSION=2.7.0
 cd /usr/local/hadoop-$VERSION
 bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-$VERSION.jar grep input output 'dfs[a-z.]+'
 ```
+(o correr ~/run-wordcount.sh)
 
 ### Copiar a localhost y ver el resultado
 ```
@@ -80,6 +81,9 @@ Hadoop    1
 Hello    2
 ```
 
+### Output log
+![Output log](mapreduce-example.png)
+
 <!--### Arbitrary size Hadoop cluster
 
 ##### 1. pull docker images and clone github repository
@@ -106,4 +110,4 @@ sudo ./start-container.sh 5
 
 do 5~6 like section A-->
 
-NOTA: Testeado con Hadoop versiçón 2.7.0. En caso de que la imagen docker cambie de versión, será necesario actualizar varios scritps. Buscar: fgrep 2.7.0 -R .
+NOTA: Testeado con Hadoop versión 2.7.0. En caso de que la imagen docker cambie de versión, será necesario actualizar varios scritps. Buscar donde con 'fgrep 2.7.0 -R .'

@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#WordCount is a simple application that counts the number of occurrences of each word in a given input set
+echo "WordCount is a simple application that counts the number of occurrences of each word in a given input set."
+
 VERSION=2.7.0
 
 # test the hadoop cluster by running wordcount
