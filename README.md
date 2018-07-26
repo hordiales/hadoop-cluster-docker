@@ -1,5 +1,7 @@
 Nota: Fork del proyecto [kiwenlau/hadoop-cluster-docker](https://github.com/kiwenlau/hadoop-cluster-docker) adaptado para usar la imagen de base recomendada por la [documentación de Hadoop](https://hadoop.apache.org/docs/stable2/hadoop-yarn/hadoop-yarn-site/DockerContainerExecutor.html): [sequenceiq/hadoop-docker](https://github.com/sequenceiq/hadoop-docker) (soporta diferentes versiones)
 
+Modo: Master/slave (no es autodiscovrery)
+
 # Cluster Hadoop de 4 nodos (1 master y 3 slaves) usando Docker
 
 ## Configuración inicial
@@ -29,6 +31,8 @@ Crea el container master y los slaves con configuraciones diferentes, usando la 
 Abre un bash en el master.
 
 TIP: agregar --rm para que los containers sean temporarios.
+
+En caso de agregar más nodos, actualizar el archivo config/slaves
 
 ##### Iniciar hadoop en el master
 (desde el bash del master)
