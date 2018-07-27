@@ -1,6 +1,7 @@
 Nota: Fork del proyecto [kiwenlau/hadoop-cluster-docker](https://github.com/kiwenlau/hadoop-cluster-docker) adaptado para usar la imagen de base recomendada por la [documentación de Hadoop](https://hadoop.apache.org/docs/stable2/hadoop-yarn/hadoop-yarn-site/DockerContainerExecutor.html): [sequenceiq/hadoop-docker](https://github.com/sequenceiq/hadoop-docker) (soporta diferentes versiones)
 
-Modo: Master/slave (no es autodiscovrery)
+Modo: Master/slave (no es autodiscovery)
+Reference: http://www.michael-noll.com/tutorials/running-hadoop-on-ubuntu-linux-multi-node-cluster/#confslaves-master-only
 
 # Cluster Hadoop de 4 nodos (1 master y 3 slaves) usando Docker
 
